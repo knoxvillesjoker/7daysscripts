@@ -5,6 +5,8 @@ This is intended for linux server owners to aid in running 7days as a service an
 
 I am in process of building things out and locking things down so these files and setup are a work in progress.
 
+boot.config is located in the server install folder in 7DaysToDieServer_data.  This file has all the options available populated.  Extra memory assignment will help keep stuff from hitting the harddrive.
+
 With these scripts I have the scripts set to run as superuser in crontab and are listed as follows in crontab:
 0 5 * * * /usr/local/bin/backup.sh
 @reboot sleep 120 && service 7days restart
