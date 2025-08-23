@@ -1,0 +1,16 @@
+[Unit]
+Description=7 days server as a service
+Documentation= https://community.thefunpimps.com
+After=network-online.target
+
+[Timer]
+OnBootSec=1min
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/7days.sh  # Replace with the actual path to your script
+Restart=always
+LimitNOFILE=10240
+
+[Install]
+WantedBy=multi-user.target
