@@ -42,4 +42,4 @@ Running it as a service like this increases the likelihood of getting a clean sh
 
 You can also directly kill it if you want via top with top running hitting q and enter the process id number (PID) and entering the appropriate signal number of usually 15 or 9.  And it should restart automatically.
 
-If you have questions or issues you can hit me up on the funpimp forums to knoxvilles_joker.
+If you have questions or issues you can hit me up on the funpimp forums (https://community.thefunpimps.com) to knoxvilles_joker.
