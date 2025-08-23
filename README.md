@@ -41,3 +41,5 @@ sudo systemctl status 7days
 Running it as a service like this increases the likelihood of getting a clean shutdown.  I have added options to the service file to stop an open files limit override.  I have also set it to only launch on startup after networking has been enabled and wait to launch on boot for 1 minute.
 
 You can also directly kill it if you want via top with top running hitting q and enter the process id number (PID) and entering the appropriate signal number of usually 15 or 9.  And it should restart automatically.
+
+If you have questions or issues you can hit me up on the funpimp forums to knoxvilles_joker.
