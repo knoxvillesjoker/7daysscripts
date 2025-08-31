@@ -1,4 +1,6 @@
 [Unit]
+# this is used with 7days.sh located in /usr/local/bin
+# 7days.sh calls startserver.sh located in my case in /home/7days/7days to launch
 Description=7 days server as a service
 Documentation= https://community.thefunpimps.com
 After=network-online.target  # only start after all network pieces are online
