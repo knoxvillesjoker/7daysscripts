@@ -2,7 +2,9 @@
 
 #  add this using "sudo crontab -e" to run this script at a set time
 #  0 5 * * * /usr/local/bin/backup.sh
+# stop the service to perform a statefull backup
 systemctl stop 7days # stops 7days service
+# pause for 30 seconds
 sleep 30
 SOURCE_DIR="/home/7days/7days/saves"  # Replace with your game's directory
 BACKUP_DIR="/home/backup" # Replace with your backup directory
