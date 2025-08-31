@@ -4,13 +4,25 @@ Documentation= https://community.thefunpimps.com
 After=network-online.target
 
 [Timer]
-OnBootSec=1min
+OnBootSec=3min
 
 [Service]
 Type=simple
+#ExecStart=/usr/local/bin/7days.sh  # Replace with the actual path to your script
+#Restart=always
+LimitNOFILE=10240
+# Set the memory locking limit to unlimited for this service
+# Replace with a specific byte value if you only need to lock a limited amount of memory
+LimitMEMLOCK=infinity
+# Grant the service the CAP_IPC_LOCK capability to allow mlock() calls
+# This is necessary when running as a non-root user
+AmbientCapabilities=CAP_IPC_LOCK
+# Specify the user and group to run the service as
+# This is a best practice for security
+#User=myserviceuser
+#Group=myservicegroup
 ExecStart=/usr/local/bin/7days.sh  # Replace with the actual path to your script
 Restart=always
-LimitNOFILE=10240
 
 [Install]
 WantedBy=multi-user.target
