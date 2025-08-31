@@ -1,16 +1,18 @@
 [Unit]
 Description=7 days server as a service
 Documentation= https://community.thefunpimps.com
-After=network-online.target
+After=network-online.target  # only start after all network pieces are online
 
 [Timer]
-OnBootSec=3min
+OnBootSec=3min  # wait 3 minutes after boot to launch
+# I had to add this delay to resolve a DNS update issue that occurs on reboot.
+# Without this delay the only other option is to restart the service @reboot in crontab after a set period of time.
+# EOS layer likes to have a fully online network stack to work.
 
 [Service]
 Type=simple
-#ExecStart=/usr/local/bin/7days.sh  # Replace with the actual path to your script
 #Restart=always
-LimitNOFILE=10240
+LimitNOFILE=10240 # this removes the limit on simultaneous files opened, game uses 8000 some files
 # Set the memory locking limit to unlimited for this service
 # Replace with a specific byte value if you only need to lock a limited amount of memory
 LimitMEMLOCK=infinity
@@ -22,7 +24,7 @@ AmbientCapabilities=CAP_IPC_LOCK
 #User=myserviceuser
 #Group=myservicegroup
 ExecStart=/usr/local/bin/7days.sh  # Replace with the actual path to your script
-Restart=always
+Restart=always # application will restart automatically if it fails to start
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=multi-user.target  # wait for full boot before starting
