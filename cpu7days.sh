@@ -7,6 +7,12 @@ printf "\r" >> /usr/local/bin/cpu_usage.log
 echo "processor temperature " >> /usr/local/bin/cpu_usage.log
 cat /sys/class/thermal/thermal_zone*/temp >> /usr/local/bin/cpu_usage.log
 
+# this utilizes sensor outputs and lists temperatures of all cores
+# this may vary based upon your hardware setup
+sensors | grep Package >> /usr/local/bin/cpu_usage.log
+sensors | grep Core >> /usr/local/bin/cpu_usage.log
+
+
 #The second part adds processor temperature readouts, useful to track environmental temperature concerns
 #Remove three zeros on the larger number to get the temperature in degrees celsius
 # To quickly convert Celsius to Fahrenheit, double the Celsius temperature and add 30. This provides a close estimate, 
