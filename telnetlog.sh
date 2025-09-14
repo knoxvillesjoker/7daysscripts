@@ -1,4 +1,4 @@
-#!/usr/bin/
+#!/usr/bin/expect
 
 
 # Specify the log file
