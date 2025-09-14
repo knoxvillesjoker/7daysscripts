@@ -16,7 +16,15 @@ sensors | grep Core >> /usr/local/bin/cpu_usage.log
 #The second part adds processor temperature readouts, useful to track environmental temperature concerns
 #Remove three zeros on the larger number to get the temperature in degrees celsius
 # To quickly convert Celsius to Fahrenheit, double the Celsius temperature and add 30. This provides a close estimate, 
-#though not perfectly accurate for all temperatures. For a more precise conversion, multiply the Celsius temperature by 1.8 (or 9/5) and then add 32,
+#though not perfectly accurate for all temperatures. For a more precise conversion, multiply the Celsius temperature by 1.8 (or 9/5) and then add 32,\
+# 40c=104f, 39c~102f, 38c~100f, 37c~99f, 36c~97f, 35c=95f, 34c~93f, 33c~91f, 32c~90f, 31c~88f 30c=86f, 29c~84f, 28c~83f, 27c~81f, 26c~79f, 25c~77f
+# 24c~75f, 23c~73f, 22c~72, 21c~70, 20c=68, 19c=66f
+
+sensors | grep temp1 >> /usr/local/bin/cpu_usage.log
+#printf "\r" >> /usr/local/bin/cpu_usage.log
+sensors | grep power1 >> /usr/local/bin/cpu_usage.log
+#printf "\r" >> /usr/local/bin/cpu_usage.log
+# this above section adds all the rest of the sensors command temperature information sans other bulky text
 
 #This will output the top 4 processor memory hogs and append them to the cpu_usage log
 #You must create cpu_usage.log in /usr/local/bin.  And you must add this to crontab by invoking sudo crontab -e.  It will not run properly otherwise
